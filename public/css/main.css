@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700');
+
+#app {
+  margin: 10px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 10px;
+  font-family: 'Montserrat', Verdana, sans-serif;
+  text-align: center;
+}
+
+@media only screen and (min-width:1600px) {
+  #app {
+    width:1600px;
+    margin:auto;
+  }
+} 
+
+h1 {
+  margin: 10px;  
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+body {
+  background-color: #e5e5e5;
+  margin: 0px;
+}
+
+body.modal-open {
+  overflow:hidden;
+}
+
+.routerLink {
+  font-size: 3em; 
+  text-decoration: none;
+  color:#656565;
+  padding-top:50px;
+  margin-top: 0.5em;
+}
+
+.loaderIcon {
+  position:absolute;
+  z-index:1001;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 57.6px;
+  height: 57.6px;
+  color: #656565;
+  background: linear-gradient(currentColor 0 0),
+         linear-gradient(currentColor 0 0),
+         linear-gradient(currentColor 0 0),
+         linear-gradient(currentColor 0 0);
+  background-size: 29.8px 29.8px;
+  background-repeat: no-repeat;
+  animation: loaderIcon-frames 1.5s infinite cubic-bezier(0.3,1,0,1);
+}
+
+@keyframes loaderIcon-frames {
+  0% {
+     background-position: 0    0,100% 0   ,100% 100%,0 100%;
+  }
+
+  33% {
+     background-position: 0    0,100% 0   ,100% 100%,0 100%;
+     width: 86.4px;
+     height: 86.4px;
+  }
+
+  66% {
+     background-position: 100% 0,100% 100%,0    100%,0 0;
+     width: 86.4px;
+     height: 86.4px;
+  }
+
+  100% {
+     background-position: 100% 0,100% 100%,0    100%,0 0;
+  }
+}
+
+div.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.pageTitle {
+  text-align: center;
+  font-weight: 10;
+  font-size:3em;
+  color:#656565;
+  padding-top: 70px;
+  padding-bottom: 15px;
+  margin:0px 0px 0px 0px;
+  max-width:100vw;
+  word-wrap: break-word;
+}
+
+.pageDescription {
+  padding-bottom:50px;
+  color: #656565;
+  font-size:large;
+}
+
+
+
+/* ---------- */
+/* Album Page */
+/* ---------- */
+
+
+.album-grid-container {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.album-grid-album {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  margin: 0px 0px 30px 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.19);
+
+  border-style: solid;
+  border-width: 1px;
+  border-image: linear-gradient(to left, #656565, #fff) 30;
+}
+
+@media only screen and (max-width:650px) {
+  .album-grid-album {
+    width: 90vw;
+    /* height: 66vw; */
+    height: 90vw;
+    margin-left: 0px;
+  }
+}
+
+.album-grid-album:hover {
+  cursor:pointer;
+}
+
+.album-grid-album:before {
+  content: ''; /* Required for pseudo-element */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+}
+
+.album-grid-title {
+	position:absolute;
+	bottom:10px;
+	right:16px;
+  font-size: 2em;
+  font-weight:10;
+  color: #000000;
+}
+
+
+/* ---------- */
+/* Photo Page */
+/* ---------- */
+
+.photo-grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom:50px;
+}
+
+.photo-grid-photo {
+  flex: 1 1 calc(33% - 20px); 
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width:1200px) {
+  .photo-grid-photo {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media only screen and (max-width:500px) {
+  .photo-grid-photo {
+    flex: 1 1 calc(100% - 20px);
+  }
+}
+
+.photo-grid-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.photoZoombox { /* page filling background */
+  position: fixed;
+  z-index:1000;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  background-color:  rgba(255, 255, 255, 0.8);
+}
+
+.photoZoomboxContent { /* vertically centered content box containing the picture and info box */
+  max-width:1800px;
+  /* max-height:90vh; */
+  margin: 0px;  
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  background: #fff;
+}
+
+.photoZoomboxPhoto {
+  max-width: 90%;
+  max-height:80vh;
+  /* height: 50%; */
+  object-fit: contain;
+  margin: 10px;
+  border: 2px solid #656565;
+}
+
+.photoZoomboxInfo {
+  width: 80%;
+  display:flex;
+  flex-wrap: wrap;
+  margin-top:25px;
+  padding-bottom:50px;
+  justify-content: center;
+}
+
+.photoZoomboxInfoItem {
+  display: flex;
+  margin-top:25px;
+  justify-content: center;
+}

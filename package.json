@@ -1,0 +1,19 @@
+{
+    "name": "html-ui",
+    "version": "0.1.0",
+    "description": "Photo portfolio page for onedrive",
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "preinstall": "npx npm-force-resolutions"
+    },
+    "author": "Niels Buit",
+    "dependencies": {
+        "tiny-emitter": "^2.1.0",
+        "vue": "^3.4.15",
+        "vue-router": "^4.2.4"
+    },
+    "devDependencies": {
+        "@vue/cli-service": "^5.0.8"
+    }
+}

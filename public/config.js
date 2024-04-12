@@ -1,0 +1,1 @@
+window.API_URL = "https://api.onedrive.com/v1.0"; // without the trailing "/"
