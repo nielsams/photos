@@ -7,7 +7,7 @@ const SHARE_ID = getShareId(process.env.VUE_APP_SHARE_URL);
 export default class OnedriveService {
 
     async listAlbumsAsync() {
-        var res = await fetch(`${API_ENDPOINT}/shares/${SHARE_ID}/root/children?expand=thumbnails&select=id,name,thumbnails`);
+        var res = await fetch(`${API_ENDPOINT}/shares/${SHARE_ID}/root/children?expand=thumbnails&select=id,name,folder,file,thumbnails,@content.downloadUrl`);
         if (res.ok) {
             return res.json();
         }

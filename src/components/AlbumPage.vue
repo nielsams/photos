@@ -44,7 +44,7 @@
                             <i>Camera: {{ zoomImage.photo.cameraModel }} &nbsp;
                             Exposure: {{ zoomImage.photo.exposureNumerator }} / {{ zoomImage.photo.exposureDenominator }} &nbsp;
                             Focal Length: {{ zoomImage.photo.focalLength }} &nbsp;
-                            Aperture: {{ zoomImage.photo.fNumber }} &nbsp;
+                            Aperture: f{{ zoomImage.photo.fNumber }} &nbsp;
                             ISO: {{ zoomImage.photo.iso }}</i>
                         </span> 
 
